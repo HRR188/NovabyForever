@@ -1,0 +1,20 @@
+/*
+  Data structure for 3d Setting
+*/
+
+{
+	"scene":{
+        "straighten":{
+            "x":"",
+            "y":"",
+            "z":""
+        },
+        "background":{
+            "style":"none", //image, color, environment, none
+            "value":""
+        }
+    },
+	"light":{
+        "brightness":"1"
+    }
+}

@@ -1,0 +1,46 @@
+.web-instructions{
+    >h1{
+        padding:65px 0 55px;
+        font-size: 30px;
+        color: #515254;
+        font-weight: normal;
+    }
+    .content{
+        p{
+            font-size: 16px;
+            color: #7B7A7A;
+            line-height: 26px;
+            margin-bottom:25px;
+        }
+        h6{
+            font-size: 18px;
+            color: #515254;
+            font-weight: normal;
+            margin:0 0 25px 0;
+        }
+        ol{
+            li{
+                font-size: 16px;
+                color: #7B7A7A;
+                line-height: 26px;
+                margin-bottom:25px;
+            }
+        }
+        ul{
+            li{
+                font-size: 14px;
+                color: #959595;
+                line-height: 26px;
+                margin-bottom:25px;
+            }
+        }
+        a{
+            font-size: 16px;
+            color: #EA6264;
+            line-height: 26px;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}

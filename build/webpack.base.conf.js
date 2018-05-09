@@ -1,0 +1,66 @@
+let path = require('path')
+let utils = require('./utils')
+let config = require('../config')
+let vueLoaderConfig = require('./vue-loader.conf')
+
+function resolve (dir) {
+    return path.join(__dirname, '..', dir)
+}
+
+if(process.env.NODE_TARGET){
+    console.log('target: ' + process.env.NODE_TARGET)
+}
+
+module.exports = {
+    entry: {
+        app: process.env.NODE_TARGET === 'mobile'?'./src/main-mobile.js':'./src/main-desktop.js'
+    },
+    output: {
+        path: config.build.assetsRoot,
+        filename: '[name].js',
+        publicPath: process.env.NODE_ENV === 'production'
+            ? config.build.assetsPublicPath
+            : config.dev.assetsPublicPath
+    },
+    resolve: {
+        extensions: ['.js', '.vue', '.json'],
+        alias: {
+            'vue$': 'vue/dist/vue.esm.js',
+            '@': resolve('src'),
+            'Saas':resolve('src/saas')
+        }
+    },
+    module: {
+        rules: [
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+                options: vueLoaderConfig
+            },
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                include: [resolve('src'), resolve('test')],
+                options:{
+                    presets: ['es2015'],
+                }
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 1024,
+                    name: utils.assetsPath('img/[name].[hash:7].[ext]')
+                }
+            },
+            {
+                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 10000,
+                    name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+                }
+            }
+        ]
+    }
+}

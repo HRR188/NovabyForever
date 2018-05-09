@@ -1,0 +1,29 @@
+/*
+saas common scss
+ */
+
+.page-title{
+  height: 67px;
+  line-height: 67px;
+  text-align: center;
+  font-size: 22px;
+  color: #4A4A4A;
+  border-bottom: 1px solid  #E8E8E8;
+}
+
+.tag-title {
+  font-size: 16px;
+  color: #181818;
+  padding-left: 14px;
+  position: relative;
+  margin-bottom: 14px;
+  &:before {
+    content: "";
+    width: 4px;
+    height: 16px;
+    background: #ea6264;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
